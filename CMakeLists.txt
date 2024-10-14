@@ -11,6 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
+find_package(Qt6Widgets REQUIRED)
 
 add_executable(array
   main.cpp
@@ -20,8 +21,11 @@ add_executable(array
   complex.h complex.cpp
   tpolinom.cpp tpolinom.h
   userinterface.h userinterface.cpp userinterface.ui
+
+
 )
 target_link_libraries(array Qt${QT_VERSION_MAJOR}::Core)
+target_link_libraries(array Qt${QT_VERSION_MAJOR}::Widgets)
 include(GNUInstallDirs)
 install(TARGETS array
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
