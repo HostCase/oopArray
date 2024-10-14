@@ -5,7 +5,7 @@
 #include <cmath>
 #include <algorithm>
 #include <stdlib.h>
-class Arraycustom
+class Arraycustom : public datainterface
 {
 public:
     Arraycustom(int size_);

@@ -21,6 +21,7 @@ add_executable(array
   complex.h complex.cpp
   tpolinom.cpp tpolinom.h
   userinterface.h userinterface.cpp userinterface.ui
+  datainterface.h
 
 
 )
