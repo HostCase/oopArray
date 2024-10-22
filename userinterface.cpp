@@ -91,12 +91,14 @@ bool userinterface::methodInputSelected(){
 
 void userinterface::on_EraseButton_clicked()
 {
+    if(methodInput){
     QString str=ui->EraseLine->text();
     ui->EraseLine->clear();
     int pos= str.toInt();
     dataInterfaceObj->erase(pos);
     ui->arraySizeInput->clear();
     refreshMenu();
+    }
 }
 
 
@@ -115,6 +117,7 @@ void userinterface::on_GetSizeButton_clicked()
 
 void userinterface::on_ChangeElement_clicked()
 {
+    if(methodInput){
     QString strIndex = ui->elementInput->text();
     QString strReal = ui->lineforChangeRealInput->text();
     QString strImagine = ui->lineforChangeImagineInput->text();
@@ -130,15 +133,38 @@ void userinterface::on_ChangeElement_clicked()
 
     refreshMenu(); // Обновляем меню после изменения данных
 }
+}
 
 
 
 void userinterface::on_getSKObutton_clicked()
 {
+    if(methodInput){
     QString str;
     QTextStream stream(&str);
     number SKO =dataInterfaceObj->SKO();
     stream <<SKO;
     QMessageBox::information(nullptr, "SKO", str);
+    }
+}
+
+
+
+
+void userinterface::on_upToDownSortButton_clicked()
+{
+    if(methodInput){
+    dataInterfaceObj->upToDown();
+    refreshMenu();
+    }
+}
+
+
+void userinterface::on_downToUpSortButton_clicked()
+{
+    if(methodInput){
+    dataInterfaceObj->downToUp();
+    refreshMenu();
+    }
 }
 

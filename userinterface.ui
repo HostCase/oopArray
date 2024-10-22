@@ -226,24 +226,24 @@ font: 18pt &quot;Microsoft JhengHei&quot;;</string>
          <widget class="QWidget" name="widget_8" native="true">
           <layout class="QHBoxLayout" name="horizontalLayout_8">
            <item>
-            <widget class="QPushButton" name="PopFrontButton">
+            <widget class="QPushButton" name="upToDownSortButton">
              <property name="styleSheet">
               <string notr="true">border-color: rgb(0, 60, 255);
 </string>
              </property>
              <property name="text">
-              <string>PopFront</string>
+              <string>upToDown</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="PopBackButton">
+            <widget class="QPushButton" name="downToUpSortButton">
              <property name="styleSheet">
               <string notr="true">border-color: rgb(0, 60, 255);
 </string>
              </property>
              <property name="text">
-              <string>PopBack</string>
+              <string>downToUp</string>
              </property>
             </widget>
            </item>

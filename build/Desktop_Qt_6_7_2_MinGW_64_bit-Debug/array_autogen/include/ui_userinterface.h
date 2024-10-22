@@ -67,8 +67,8 @@ public:
     QPushButton *getSKObutton;
     QWidget *widget_8;
     QHBoxLayout *horizontalLayout_8;
-    QPushButton *PopFrontButton;
-    QPushButton *PopBackButton;
+    QPushButton *upToDownSortButton;
+    QPushButton *downToUpSortButton;
     QWidget *widget_7;
     QHBoxLayout *horizontalLayout_7;
     QPushButton *GetSizeButton;
@@ -247,19 +247,19 @@ public:
         widget_8->setObjectName("widget_8");
         horizontalLayout_8 = new QHBoxLayout(widget_8);
         horizontalLayout_8->setObjectName("horizontalLayout_8");
-        PopFrontButton = new QPushButton(widget_8);
-        PopFrontButton->setObjectName("PopFrontButton");
-        PopFrontButton->setStyleSheet(QString::fromUtf8("border-color: rgb(0, 60, 255);\n"
+        upToDownSortButton = new QPushButton(widget_8);
+        upToDownSortButton->setObjectName("upToDownSortButton");
+        upToDownSortButton->setStyleSheet(QString::fromUtf8("border-color: rgb(0, 60, 255);\n"
 ""));
 
-        horizontalLayout_8->addWidget(PopFrontButton);
+        horizontalLayout_8->addWidget(upToDownSortButton);
 
-        PopBackButton = new QPushButton(widget_8);
-        PopBackButton->setObjectName("PopBackButton");
-        PopBackButton->setStyleSheet(QString::fromUtf8("border-color: rgb(0, 60, 255);\n"
+        downToUpSortButton = new QPushButton(widget_8);
+        downToUpSortButton->setObjectName("downToUpSortButton");
+        downToUpSortButton->setStyleSheet(QString::fromUtf8("border-color: rgb(0, 60, 255);\n"
 ""));
 
-        horizontalLayout_8->addWidget(PopBackButton);
+        horizontalLayout_8->addWidget(downToUpSortButton);
 
 
         arrayTools->addWidget(widget_8);
@@ -312,8 +312,8 @@ public:
         PushFrontButton->setText(QCoreApplication::translate("userinterface", "PushFront", nullptr));
         InsertButton->setText(QCoreApplication::translate("userinterface", "Insert", nullptr));
         getSKObutton->setText(QCoreApplication::translate("userinterface", "SKO", nullptr));
-        PopFrontButton->setText(QCoreApplication::translate("userinterface", "PopFront", nullptr));
-        PopBackButton->setText(QCoreApplication::translate("userinterface", "PopBack", nullptr));
+        upToDownSortButton->setText(QCoreApplication::translate("userinterface", "upToDown", nullptr));
+        downToUpSortButton->setText(QCoreApplication::translate("userinterface", "downToUp", nullptr));
         GetSizeButton->setText(QCoreApplication::translate("userinterface", "GetSIZE", nullptr));
         menuProgramm->setTitle(QCoreApplication::translate("userinterface", "Programm", nullptr));
     } // retranslateUi

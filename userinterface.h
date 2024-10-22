@@ -43,6 +43,11 @@ private slots:
 
     void on_getSKObutton_clicked();
 
+
+    void on_upToDownSortButton_clicked();
+
+    void on_downToUpSortButton_clicked();
+
 private:
     Ui::userinterface *ui;
     QVBoxLayout *lay;
