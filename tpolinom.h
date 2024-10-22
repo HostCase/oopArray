@@ -16,7 +16,7 @@ enum WRITEMODE{
     WriteModeClassic,
     WriteModeRoot,
 };
-class TPolinom : public datainterface
+class TPolinom
 {
     WRITEMODE WriteMode;
     PRINTMODE printMode = PrintModeClassic;

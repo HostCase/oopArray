@@ -4,8 +4,10 @@
 #include "number.h"
 #include <cmath>
 #include <algorithm>
+#include <qobject.h>
+#include <QTextStream>
 #include <stdlib.h>
-class Arraycustom : public datainterface
+class Arraycustom
 {
 public:
     Arraycustom(int size_);
@@ -20,6 +22,8 @@ public:
     number SKO();
     void upToDown();
     void downToUp();
+    QString getElement(const int& index);
+    int getSize() ;
 };
 
 #endif // ARRAYCUSTOM_H

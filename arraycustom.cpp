@@ -1,12 +1,15 @@
 #include "arraycustom.h"
-Arraycustom::Arraycustom(int size_ = 5): size(size_){
-    if (size > 0){
-        data = new number[size];
-        int value = 0;
-        for (int i = 0; i < size; i++){
-            data[i] = value;
-            value++;
+Arraycustom::Arraycustom(int size_){
+    size=0;
+    if (size_ > 0){
+        data = new number[size_];
+        double value = 0;
+        for (int i = 0; i < size_; i++){
+            data[i].img = value;
+            data[i].real = -value;
+            value+=1;
         }
+        size=size_;
     }
 }
 
@@ -50,12 +53,7 @@ void Arraycustom::change_size(int nsize)
         data = newarr;
         size = nsize;
     }
-    /*
-    number *newData = new number[nsize];
-    delete[] data;
-    data = new number[nsize];
-    size = nsize;
-    */
+
 }
 
 void Arraycustom::erase(int index)
@@ -134,3 +132,32 @@ std::ostream& operator << (std::ostream& os, Arraycustom& arr)
     os << "\n";
     return os;
 }
+
+
+QString Arraycustom::getElement(const int& index){
+    if (index < 0 || index >= size) {
+        throw std::out_of_range("Index out of range");
+    }
+    //double convert=data[index];// тут от дабла летит комплексное
+    QString str;
+    QTextStream stream(&str);
+    if (data[index].img > 0){
+        stream << data[index].real << "+" << data[index].img << "i ";
+    }
+    else if (data[index].img < 0){
+        stream << data[index].real << data[index].img << "i ";
+    }
+    else{
+        stream << data[index].real;
+    };
+    return str;
+}
+
+int Arraycustom::getSize()
+{
+    return this->size;
+}
+
+
+
+

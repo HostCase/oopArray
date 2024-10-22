@@ -17,8 +17,8 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>180</y>
+      <x>20</x>
+      <y>20</y>
       <width>160</width>
       <height>141</height>
      </rect>
@@ -43,13 +43,6 @@
       </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="selectComplex">
-       <property name="text">
-        <string>Complex</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QPushButton" name="SelectPolinom">
        <property name="text">
         <string>Polinom</string>
@@ -57,6 +50,226 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QScrollArea" name="scrollAreaOutput">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>50</y>
+      <width>341</width>
+      <height>331</height>
+     </rect>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>339</width>
+       <height>329</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QScrollArea" name="scrollArea_2">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>290</y>
+      <width>401</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+font: 18pt &quot;Microsoft JhengHei&quot;;</string>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollContens_2">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>-281</y>
+       <width>385</width>
+       <height>510</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Tools&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="arrayTools">
+        <item>
+         <widget class="QWidget" name="widget_2" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLineEdit" name="EraseLine"/>
+           </item>
+           <item>
+            <widget class="QPushButton" name="EraseButton">
+             <property name="styleSheet">
+              <string notr="true">border-color: rgb(0, 60, 255);
+</string>
+             </property>
+             <property name="text">
+              <string>Erase</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLineEdit" name="elementInput"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineforChangeRealInput"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineforChangeImagineInput"/>
+           </item>
+           <item>
+            <widget class="QPushButton" name="ChangeElement">
+             <property name="styleSheet">
+              <string notr="true">border-color: rgb(0, 60, 255);
+</string>
+             </property>
+             <property name="text">
+              <string>InputElement</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_6" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QLineEdit" name="PushFrontLine"/>
+           </item>
+           <item>
+            <widget class="QPushButton" name="PushFrontButton">
+             <property name="styleSheet">
+              <string notr="true">border-color: rgb(0, 60, 255);
+</string>
+             </property>
+             <property name="text">
+              <string>PushFront</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_3" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLineEdit" name="InsertPosition"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="InsertValue"/>
+           </item>
+           <item>
+            <widget class="QPushButton" name="InsertButton">
+             <property name="styleSheet">
+              <string notr="true">border-color: rgb(0, 60, 255);
+</string>
+             </property>
+             <property name="text">
+              <string>Insert</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_4" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QPushButton" name="getSKObutton">
+             <property name="styleSheet">
+              <string notr="true">border-color: rgb(0, 60, 255);
+</string>
+             </property>
+             <property name="text">
+              <string>SKO</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_8" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <item>
+            <widget class="QPushButton" name="PopFrontButton">
+             <property name="styleSheet">
+              <string notr="true">border-color: rgb(0, 60, 255);
+</string>
+             </property>
+             <property name="text">
+              <string>PopFront</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="PopBackButton">
+             <property name="styleSheet">
+              <string notr="true">border-color: rgb(0, 60, 255);
+</string>
+             </property>
+             <property name="text">
+              <string>PopBack</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_7" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_7"/>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="GetSizeButton">
+        <property name="styleSheet">
+         <string notr="true">border-color: rgb(0, 60, 255);
+</string>
+        </property>
+        <property name="text">
+         <string>GetSIZE</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -66,7 +279,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuProgramm">

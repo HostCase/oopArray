@@ -1,11 +1,11 @@
 #ifndef COMPLEX_H
 #define COMPLEX_H
-#include "datainterface.h"
 #include <iostream>
+#include <qobject.h>
 #include <string>
 #include <ctype.h>
 #include <cmath>
-class Complex : public datainterface
+class Complex
 {
 public:
     //Конструкторы
