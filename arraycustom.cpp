@@ -1,4 +1,5 @@
 #include "arraycustom.h"
+#include <qdebug.h>
 Arraycustom::Arraycustom(int size_){
     size=0;
     if (size_ > 0){
@@ -138,19 +139,9 @@ QString Arraycustom::getElement(const int& index){
     if (index < 0 || index >= size) {
         throw std::out_of_range("Index out of range");
     }
-    //double convert=data[index];// тут от дабла летит комплексное
-    QString str;
-    QTextStream stream(&str);
-    if (data[index].img > 0){
-        stream << data[index].real << "+" << data[index].img << "i ";
-    }
-    else if (data[index].img < 0){
-        stream << data[index].real << data[index].img << "i ";
-    }
-    else{
-        stream << data[index].real;
-    };
+    QString str=data[index].getStringValue();
     return str;
+
 }
 
 int Arraycustom::getSize()
@@ -158,6 +149,15 @@ int Arraycustom::getSize()
     return this->size;
 }
 
+
+void Arraycustom::ChangeElementInArray(double real, double imagine,int index){
+
+    if (this->getSize() > 0) {
+        this->data[index] = Complex(real,imagine);
+    } else {
+        qDebug() << "Массив data пуст!";
+    }
+}
 
 
 

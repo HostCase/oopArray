@@ -124,12 +124,8 @@ void userinterface::on_ChangeElement_clicked()
     double real=strReal.toDouble();
     double imagine=strImagine.toDouble();
     int index=strIndex.toInt();
-    if (dataInterfaceObj->getSize() > 0) { // Убедитесь, что массив не пуст
-        dataInterfaceObj->data[index] = Complex(real,imagine); // Записываем значение в первую позицию
-    } else {
-        // Обработка случая, когда массив пуст
-        qDebug() << "Массив data пуст!";
-    }
+    dataInterfaceObj->ChangeElementInArray(real,imagine,index);
+
 
     refreshMenu(); // Обновляем меню после изменения данных
 }

@@ -2,7 +2,6 @@
 #define COMPLEX_H
 #include <iostream>
 #include <qobject.h>
-#include <string>
 #include <ctype.h>
 #include <cmath>
 class Complex
@@ -33,6 +32,7 @@ public:
     friend Complex operator +(const Complex &left, const Complex &right );
     friend std::ostream & operator <<( std::ostream &os, const Complex &c );
     friend std::istream& operator>> (std::istream& out, Complex& x);
+    QString getStringValue();
 };
 
 #endif // COMPLEX_H

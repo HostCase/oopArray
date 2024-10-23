@@ -1,4 +1,6 @@
 #include "complex.h"
+#include "arraycustom.h"
+#include <qfloat16.h>
 double arg(Complex x){
     if (x.real > 0){
         return atan(x.img/x.real);
@@ -113,6 +115,7 @@ std::ostream & operator <<( std::ostream &os, const Complex &c )
         return os << c.real;
     }
 }
+
 std::istream& operator>> (std::istream& in, Complex& x){
 
     std::string input_string;
@@ -135,6 +138,23 @@ std::istream& operator>> (std::istream& in, Complex& x){
         return in;
     }
     return in;
+}
+
+
+QString Complex::getStringValue(){
+    QString str;
+    QTextStream stream(&str);
+
+    if (img > 0){
+        stream << real << "+" << img << "i ";
+    }
+    else if (img < 0){
+        stream << real << img << "i ";
+    }
+    else{
+        stream << real;
+    };
+    return str;
 }
 
 
