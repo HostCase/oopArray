@@ -158,4 +158,27 @@ QString Complex::getStringValue(){
 }
 
 
+Complex::Complex(QString str) {
+    std::string input_string = str.toStdString();
+    std::size_t pos = input_string.find("+");
+
+    if (pos != std::string::npos) {
+        std::string left = input_string.substr(0, pos);
+        std::string right = input_string.substr(pos + 1); // пропускаем '+'
+        real = std::stod(left);
+        img = std::stod(right);
+    } else {
+        pos = input_string.find("-");
+        if (pos != std::string::npos) {
+            std::string left = input_string.substr(0, pos);
+            std::string right = input_string.substr(pos); // оставляем '-' в строке
+            real = std::stod(left);
+            img = std::stod(right);
+        } else {
+            // Если строка не содержит ни '+' ни '-', то можно установить значения по умолчанию
+            real = std::stod(input_string);
+            img = 0.0;
+        }
+    }
+};
 

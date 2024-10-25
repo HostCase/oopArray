@@ -11,6 +11,7 @@ public:
     Complex();
     Complex(double real_);
     Complex(double real_, double img_);
+    Complex(QString);
     //атрибуты
     double real;
     double img;

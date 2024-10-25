@@ -24,7 +24,7 @@ public:
     void downToUp();
     QString getElement(const int& index);
     int getSize() ;
-    void ChangeElementInArray(double real, double imagine,int index);
+    void ChangeElementInArray(QString str,int index);
 };
 
 #endif // ARRAYCUSTOM_H

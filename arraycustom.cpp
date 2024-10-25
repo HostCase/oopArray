@@ -150,10 +150,10 @@ int Arraycustom::getSize()
 }
 
 
-void Arraycustom::ChangeElementInArray(double real, double imagine,int index){
+void Arraycustom::ChangeElementInArray(QString str,int index){
 
     if (this->getSize() > 0) {
-        this->data[index] = Complex(real,imagine);
+        this->data[index] = Complex(str);
     } else {
         qDebug() << "Массив data пуст!";
     }

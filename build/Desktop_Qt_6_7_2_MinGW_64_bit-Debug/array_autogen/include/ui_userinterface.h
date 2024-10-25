@@ -51,17 +51,7 @@ public:
     QHBoxLayout *horizontalLayout;
     QLineEdit *elementInput;
     QLineEdit *lineforChangeRealInput;
-    QLineEdit *lineforChangeImagineInput;
     QPushButton *ChangeElement;
-    QWidget *widget_6;
-    QHBoxLayout *horizontalLayout_6;
-    QLineEdit *PushFrontLine;
-    QPushButton *PushFrontButton;
-    QWidget *widget_3;
-    QHBoxLayout *horizontalLayout_3;
-    QLineEdit *InsertPosition;
-    QLineEdit *InsertValue;
-    QPushButton *InsertButton;
     QWidget *widget_4;
     QHBoxLayout *horizontalLayout_4;
     QPushButton *getSKObutton;
@@ -69,9 +59,12 @@ public:
     QHBoxLayout *horizontalLayout_8;
     QPushButton *upToDownSortButton;
     QPushButton *downToUpSortButton;
+    QPushButton *GetSizeButton;
     QWidget *widget_7;
     QHBoxLayout *horizontalLayout_7;
-    QPushButton *GetSizeButton;
+    QWidget *verticalLayoutWidget_2;
+    QVBoxLayout *polinomTools;
+    QLabel *programMethod;
     QStatusBar *statusbar;
     QMenuBar *menubar;
     QMenu *menuProgramm;
@@ -111,7 +104,7 @@ public:
 
         scrollAreaOutput = new QScrollArea(centralwidget);
         scrollAreaOutput->setObjectName("scrollAreaOutput");
-        scrollAreaOutput->setGeometry(QRect(390, 50, 341, 331));
+        scrollAreaOutput->setGeometry(QRect(430, 40, 341, 331));
         scrollAreaOutput->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
@@ -119,7 +112,7 @@ public:
         scrollAreaOutput->setWidget(scrollAreaWidgetContents);
         scrollArea_2 = new QScrollArea(centralwidget);
         scrollArea_2->setObjectName("scrollArea_2");
-        scrollArea_2->setGeometry(QRect(-10, 290, 401, 231));
+        scrollArea_2->setGeometry(QRect(0, 340, 421, 181));
         scrollArea_2->setStyleSheet(QString::fromUtf8("\n"
 "\n"
 "font: 18pt \"Microsoft JhengHei\";"));
@@ -127,7 +120,7 @@ public:
         scrollContens_2 = new QWidget();
         scrollContens_2->setObjectName("scrollContens_2");
         scrollContens_2->setEnabled(true);
-        scrollContens_2->setGeometry(QRect(0, -281, 385, 510));
+        scrollContens_2->setGeometry(QRect(0, 0, 405, 382));
         verticalLayout_3 = new QVBoxLayout(scrollContens_2);
         verticalLayout_3->setObjectName("verticalLayout_3");
         label = new QLabel(scrollContens_2);
@@ -171,11 +164,6 @@ public:
 
         horizontalLayout->addWidget(lineforChangeRealInput);
 
-        lineforChangeImagineInput = new QLineEdit(widget);
-        lineforChangeImagineInput->setObjectName("lineforChangeImagineInput");
-
-        horizontalLayout->addWidget(lineforChangeImagineInput);
-
         ChangeElement = new QPushButton(widget);
         ChangeElement->setObjectName("ChangeElement");
         ChangeElement->setStyleSheet(QString::fromUtf8("border-color: rgb(0, 60, 255);\n"
@@ -185,49 +173,6 @@ public:
 
 
         arrayTools->addWidget(widget);
-
-        widget_6 = new QWidget(scrollContens_2);
-        widget_6->setObjectName("widget_6");
-        horizontalLayout_6 = new QHBoxLayout(widget_6);
-        horizontalLayout_6->setObjectName("horizontalLayout_6");
-        PushFrontLine = new QLineEdit(widget_6);
-        PushFrontLine->setObjectName("PushFrontLine");
-
-        horizontalLayout_6->addWidget(PushFrontLine);
-
-        PushFrontButton = new QPushButton(widget_6);
-        PushFrontButton->setObjectName("PushFrontButton");
-        PushFrontButton->setStyleSheet(QString::fromUtf8("border-color: rgb(0, 60, 255);\n"
-""));
-
-        horizontalLayout_6->addWidget(PushFrontButton);
-
-
-        arrayTools->addWidget(widget_6);
-
-        widget_3 = new QWidget(scrollContens_2);
-        widget_3->setObjectName("widget_3");
-        horizontalLayout_3 = new QHBoxLayout(widget_3);
-        horizontalLayout_3->setObjectName("horizontalLayout_3");
-        InsertPosition = new QLineEdit(widget_3);
-        InsertPosition->setObjectName("InsertPosition");
-
-        horizontalLayout_3->addWidget(InsertPosition);
-
-        InsertValue = new QLineEdit(widget_3);
-        InsertValue->setObjectName("InsertValue");
-
-        horizontalLayout_3->addWidget(InsertValue);
-
-        InsertButton = new QPushButton(widget_3);
-        InsertButton->setObjectName("InsertButton");
-        InsertButton->setStyleSheet(QString::fromUtf8("border-color: rgb(0, 60, 255);\n"
-""));
-
-        horizontalLayout_3->addWidget(InsertButton);
-
-
-        arrayTools->addWidget(widget_3);
 
         widget_4 = new QWidget(scrollContens_2);
         widget_4->setObjectName("widget_4");
@@ -264,6 +209,13 @@ public:
 
         arrayTools->addWidget(widget_8);
 
+        GetSizeButton = new QPushButton(scrollContens_2);
+        GetSizeButton->setObjectName("GetSizeButton");
+        GetSizeButton->setStyleSheet(QString::fromUtf8("border-color: rgb(0, 60, 255);\n"
+""));
+
+        arrayTools->addWidget(GetSizeButton);
+
         widget_7 = new QWidget(scrollContens_2);
         widget_7->setObjectName("widget_7");
         horizontalLayout_7 = new QHBoxLayout(widget_7);
@@ -274,14 +226,16 @@ public:
 
         verticalLayout_3->addLayout(arrayTools);
 
-        GetSizeButton = new QPushButton(scrollContens_2);
-        GetSizeButton->setObjectName("GetSizeButton");
-        GetSizeButton->setStyleSheet(QString::fromUtf8("border-color: rgb(0, 60, 255);\n"
-""));
-
-        verticalLayout_3->addWidget(GetSizeButton);
-
         scrollArea_2->setWidget(scrollContens_2);
+        verticalLayoutWidget_2 = new QWidget(centralwidget);
+        verticalLayoutWidget_2->setObjectName("verticalLayoutWidget_2");
+        verticalLayoutWidget_2->setGeometry(QRect(450, 400, 367, 101));
+        polinomTools = new QVBoxLayout(verticalLayoutWidget_2);
+        polinomTools->setObjectName("polinomTools");
+        polinomTools->setContentsMargins(0, 0, 0, 0);
+        programMethod = new QLabel(centralwidget);
+        programMethod->setObjectName("programMethod");
+        programMethod->setGeometry(QRect(20, 220, 161, 51));
         userinterface->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(userinterface);
         statusbar->setObjectName("statusbar");
@@ -309,12 +263,11 @@ public:
         label->setText(QCoreApplication::translate("userinterface", "<html><head/><body><p align=\"center\"><span style=\" font-size:20pt;\">Tools</span></p></body></html>", nullptr));
         EraseButton->setText(QCoreApplication::translate("userinterface", "Erase", nullptr));
         ChangeElement->setText(QCoreApplication::translate("userinterface", "InputElement", nullptr));
-        PushFrontButton->setText(QCoreApplication::translate("userinterface", "PushFront", nullptr));
-        InsertButton->setText(QCoreApplication::translate("userinterface", "Insert", nullptr));
         getSKObutton->setText(QCoreApplication::translate("userinterface", "SKO", nullptr));
         upToDownSortButton->setText(QCoreApplication::translate("userinterface", "upToDown", nullptr));
         downToUpSortButton->setText(QCoreApplication::translate("userinterface", "downToUp", nullptr));
         GetSizeButton->setText(QCoreApplication::translate("userinterface", "GetSIZE", nullptr));
+        programMethod->setText(QString());
         menuProgramm->setTitle(QCoreApplication::translate("userinterface", "Programm", nullptr));
     } // retranslateUi
 

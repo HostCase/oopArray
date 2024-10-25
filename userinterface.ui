@@ -54,8 +54,8 @@
    <widget class="QScrollArea" name="scrollAreaOutput">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>50</y>
+      <x>430</x>
+      <y>40</y>
       <width>341</width>
       <height>331</height>
      </rect>
@@ -77,10 +77,10 @@
    <widget class="QScrollArea" name="scrollArea_2">
     <property name="geometry">
      <rect>
-      <x>-10</x>
-      <y>290</y>
-      <width>401</width>
-      <height>231</height>
+      <x>0</x>
+      <y>340</y>
+      <width>421</width>
+      <height>181</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -98,9 +98,9 @@ font: 18pt &quot;Microsoft JhengHei&quot;;</string>
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>-281</y>
-       <width>385</width>
-       <height>510</height>
+       <y>0</y>
+       <width>405</width>
+       <height>382</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -146,9 +146,6 @@ font: 18pt &quot;Microsoft JhengHei&quot;;</string>
             <widget class="QLineEdit" name="lineforChangeRealInput"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineforChangeImagineInput"/>
-           </item>
-           <item>
             <widget class="QPushButton" name="ChangeElement">
              <property name="styleSheet">
               <string notr="true">border-color: rgb(0, 60, 255);
@@ -156,49 +153,6 @@ font: 18pt &quot;Microsoft JhengHei&quot;;</string>
              </property>
              <property name="text">
               <string>InputElement</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QWidget" name="widget_6" native="true">
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
-           <item>
-            <widget class="QLineEdit" name="PushFrontLine"/>
-           </item>
-           <item>
-            <widget class="QPushButton" name="PushFrontButton">
-             <property name="styleSheet">
-              <string notr="true">border-color: rgb(0, 60, 255);
-</string>
-             </property>
-             <property name="text">
-              <string>PushFront</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QWidget" name="widget_3" native="true">
-          <layout class="QHBoxLayout" name="horizontalLayout_3">
-           <item>
-            <widget class="QLineEdit" name="InsertPosition"/>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="InsertValue"/>
-           </item>
-           <item>
-            <widget class="QPushButton" name="InsertButton">
-             <property name="styleSheet">
-              <string notr="true">border-color: rgb(0, 60, 255);
-</string>
-             </property>
-             <property name="text">
-              <string>Insert</string>
              </property>
             </widget>
            </item>
@@ -251,25 +205,49 @@ font: 18pt &quot;Microsoft JhengHei&quot;;</string>
          </widget>
         </item>
         <item>
+         <widget class="QPushButton" name="GetSizeButton">
+          <property name="styleSheet">
+           <string notr="true">border-color: rgb(0, 60, 255);
+</string>
+          </property>
+          <property name="text">
+           <string>GetSIZE</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QWidget" name="widget_7" native="true">
           <layout class="QHBoxLayout" name="horizontalLayout_7"/>
          </widget>
         </item>
        </layout>
       </item>
-      <item>
-       <widget class="QPushButton" name="GetSizeButton">
-        <property name="styleSheet">
-         <string notr="true">border-color: rgb(0, 60, 255);
-</string>
-        </property>
-        <property name="text">
-         <string>GetSIZE</string>
-        </property>
-       </widget>
-      </item>
      </layout>
     </widget>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>400</y>
+      <width>367</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="polinomTools"/>
+   </widget>
+   <widget class="QLabel" name="programMethod">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>220</y>
+      <width>161</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

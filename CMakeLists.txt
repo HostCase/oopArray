@@ -26,6 +26,7 @@ add_executable(array
 
 
 
+
 )
 target_link_libraries(array Qt${QT_VERSION_MAJOR}::Core)
 target_link_libraries(array Qt${QT_VERSION_MAJOR}::Widgets)

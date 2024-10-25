@@ -12,12 +12,12 @@ userinterface::userinterface(QWidget *parent)
     lay = new QVBoxLayout(ui->scrollAreaWidgetContents);
     lay->setSpacing(2);
     ui->scrollAreaWidgetContents->setLayout(lay);
+    ui->scrollArea_2->hide();
 
     QIntValidator *validator = new QIntValidator(this);
     ui->arraySizeInput->setValidator(validator);
     ui->elementInput->setValidator(validator);
-    ui->lineforChangeImagineInput->setValidator(validator);
-    ui->lineforChangeRealInput->setValidator(validator);
+    ui->scrollAreaOutput->hide();
 }
 
 userinterface::~userinterface()
@@ -29,12 +29,18 @@ userinterface::~userinterface()
 
 void userinterface::on_selectArray_clicked()
 {
+    if(!(methodInput==0)){
+        delete dataInterfaceObj;
+    }
+    ui->programMethod->setText("Selected: Array");
     QString str=ui->arraySizeInput->text();
     int sizeCreate= str.toInt();
     ui->arraySizeInput->clear();
     methodInput=1;
     dataInterfaceObj=new Arraycustom(sizeCreate);
     refreshMenu();
+    ui->scrollArea_2->show();
+    ui->scrollAreaOutput->show();
 }
 
 void userinterface::on_arraySizeInput_returnPressed()
@@ -119,15 +125,12 @@ void userinterface::on_ChangeElement_clicked()
 {
     if(methodInput){
     QString strIndex = ui->elementInput->text();
-    QString strReal = ui->lineforChangeRealInput->text();
-    QString strImagine = ui->lineforChangeImagineInput->text();
-    double real=strReal.toDouble();
-    double imagine=strImagine.toDouble();
+    QString str = ui->lineforChangeRealInput->text();
     int index=strIndex.toInt();
-    dataInterfaceObj->ChangeElementInArray(real,imagine,index);
+    dataInterfaceObj->ChangeElementInArray(str,index);
 
 
-    refreshMenu(); // Обновляем меню после изменения данных
+    refreshMenu();
 }
 }
 
