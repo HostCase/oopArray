@@ -59,12 +59,26 @@ private slots:
 
     void on_polinomTool3_clicked();
 
+    void on_polinomTool4_clicked();
+
+    void on_clearArrayButton_clicked();
+
+    void on_polinomTool5_clicked();
+
+    void on_getPolynomButton_clicked();
+
+    void on_polinomTool6_clicked();
+
+    void on_polinomTool7_clicked();
+
+    void on_polinomTool8_clicked();
+
 private:
     Ui::userinterface *ui;
     QVBoxLayout *lay;
     int methodInput = 0;
-    Arraycustom* dataInterfaceObj;
-    TPolinom* dataPolinom;
+    Arraycustom* dataInterfaceObj=nullptr;
+    TPolinom* dataPolinom=nullptr;
 };
 
 #endif // USERINTERFACE_H

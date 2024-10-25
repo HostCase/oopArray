@@ -25,22 +25,11 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QPushButton" name="selectArray">
-         <property name="text">
-          <string>Array</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="arraySizeInput">
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <widget class="QPushButton" name="selectArray">
+       <property name="text">
+        <string>Array</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="SelectPolinom">
@@ -98,9 +87,9 @@ font: 18pt &quot;Microsoft JhengHei&quot;;</string>
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>-391</y>
+       <y>-775</y>
        <width>405</width>
-       <height>570</height>
+       <height>954</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -226,6 +215,19 @@ font: 18pt &quot;Microsoft JhengHei&quot;;</string>
       <item>
        <layout class="QVBoxLayout" name="polinomTools">
         <item>
+         <widget class="QWidget" name="polinomW1_6" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QPushButton" name="getPolynomButton">
+             <property name="text">
+              <string>GetPolynom</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
          <widget class="QWidget" name="polinomW1" native="true">
           <layout class="QHBoxLayout" name="horizontalLayout_3">
            <item>
@@ -261,12 +263,74 @@ font: 18pt &quot;Microsoft JhengHei&quot;;</string>
          <widget class="QWidget" name="polinomW1_3" native="true">
           <layout class="QHBoxLayout" name="horizontalLayout_6">
            <item>
-            <widget class="QLineEdit" name="polinomTool3_line"/>
-           </item>
-           <item>
             <widget class="QPushButton" name="polinomTool3">
              <property name="text">
               <string>12</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="polinomW1_4" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_9">
+           <item>
+            <widget class="QPushButton" name="polinomTool4">
+             <property name="text">
+              <string>13</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="polinomW1_5" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_10">
+           <item>
+            <widget class="QPushButton" name="polinomTool5">
+             <property name="text">
+              <string>14</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="polinomW1_7" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_12">
+           <item>
+            <widget class="QPushButton" name="polinomTool6">
+             <property name="text">
+              <string>15</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="polinomW1_8" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_13">
+           <item>
+            <widget class="QPushButton" name="polinomTool7">
+             <property name="text">
+              <string>16</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="polinomW1_9" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_14">
+           <item>
+            <widget class="QPushButton" name="polinomTool8">
+             <property name="text">
+              <string>17</string>
              </property>
             </widget>
            </item>
@@ -289,6 +353,19 @@ font: 18pt &quot;Microsoft JhengHei&quot;;</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clearArrayButton">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>40</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Clear</string>
     </property>
    </widget>
   </widget>

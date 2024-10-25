@@ -16,8 +16,9 @@ userinterface::userinterface(QWidget *parent)
     ui->scrollArea_2->hide();
     ui->scrollAreaOutput->hide();
     QIntValidator *validator = new QIntValidator(this);
-    ui->arraySizeInput->setValidator(validator);
     ui->elementInput->setValidator(validator);
+
+    ui->clearArrayButton->hide();
 }
 
 userinterface::~userinterface()
@@ -29,28 +30,30 @@ userinterface::~userinterface()
 
 void userinterface::on_selectArray_clicked()
 {
-    if(methodInput==0){
+    if(methodInput==0||(dataInterfaceObj==nullptr)){
         ui->programMethod->setText("Selected: Array");
-        QString str=ui->arraySizeInput->text();
-        int sizeCreate= str.toInt();
-        ui->arraySizeInput->clear();
+        bool ok;
+        int sizeCreate= QInputDialog::getInt(this, "Input", "Write index: ", 0, 0, 100, 1, &ok);
+        if (!ok) return;
         methodInput=1;
         dataInterfaceObj=new Arraycustom(sizeCreate);
+        ui->clearArrayButton->show();
         ui->scrollArea_2->show();
         ui->scrollAreaOutput->show();
 
-        //виджеты в тулсах
         ui->widget->show();
         ui->widget_2->show();
         ui->widget_4->show();
         ui->widget_7->show();
         ui->widget_8->show();
         ui->polinomW1->hide();
-        //хайднуть полиномовские
+
 
         refreshMenu();
     }
     if(methodInput==2){
+        ui->clearArrayButton->show();
+
         ui->programMethod->setText("Selected: Array");
         ui->scrollAreaOutput->show();
         ui->widget->show();
@@ -123,7 +126,7 @@ void userinterface::on_EraseButton_clicked()
     ui->EraseLine->clear();
     int pos= str.toInt();
     dataInterfaceObj->erase(pos);
-    ui->arraySizeInput->clear();
+    ui->EraseLine->clear();
     refreshMenu();
     }
 }
@@ -188,6 +191,12 @@ void userinterface::on_downToUpSortButton_clicked()
     }
 }
 
+void userinterface::on_clearArrayButton_clicked()
+{
+    delete dataInterfaceObj;
+    removeAllWidgets();
+    dataInterfaceObj=nullptr;
+}
 
 
 
@@ -211,7 +220,7 @@ void userinterface::on_SelectPolinom_clicked()
 
         //сюда show на виджеты от polinom
 
-
+        ui->clearArrayButton->hide();
         ui->widget->hide();
         ui->widget_2->hide();
         ui->widget_4->hide();
@@ -236,6 +245,17 @@ void userinterface::on_SelectPolinom_clicked()
 
 
 
+void userinterface::on_getPolynomButton_clicked()
+{
+    if(dataPolinom!=nullptr&&methodInputSelected()){
+        if(dataPolinom->getStringValue()!="0"){
+    QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
+        }
+        else{
+            QMessageBox::information(nullptr, "Info", "Empty");
+        }
+    }
+}
 
 
 
@@ -297,10 +317,10 @@ void userinterface::on_polinomTool2_clicked()
 void userinterface::on_polinomTool3_clicked()
 {
     std::vector<double> rootz;
-    QString input = ui->polinomTool3_line->text();
-    double an = input.toDouble();
-    ui->polinomTool3_line->clear();
     bool ok;
+    double an = QInputDialog::getDouble(this, "Input", "Write an:", 0, 0, 100, 1, &ok);
+    if (!ok) return;
+
     double deg = QInputDialog::getDouble(this, "Input", "Write degree:", 0, 0, 100, 1, &ok);
     if (!ok) return;
 
@@ -313,9 +333,73 @@ void userinterface::on_polinomTool3_clicked()
     dataPolinom->ByRoots(an, rootz);
     QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
 }
+//12
 
 
 
 
 
 
+void userinterface::on_polinomTool4_clicked()
+{
+    dataPolinom->setPrintMode(PrintModeClassic);
+    QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
+}
+//13
+
+
+
+void userinterface::on_polinomTool5_clicked()
+{
+    if (dataPolinom->eroot()){
+        dataPolinom->setPrintMode(PrintModeRoot);
+        QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
+    }
+    else{
+        QMessageBox::information(nullptr, "Error", "Error with polinom roots");
+    }
+}
+//14
+
+
+
+void userinterface::on_polinomTool6_clicked()
+{
+    bool ok;
+    double an=QInputDialog::getDouble(this, "Input", "Write new an[n]: ", 0, 0, 100, 1, &ok);
+    if (!ok) return;
+    dataPolinom->set_an(an);
+    dataPolinom->ByRoots(an,dataPolinom->getter_roots());
+    QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
+
+}
+//15
+
+
+
+
+
+void userinterface::on_polinomTool7_clicked()
+{
+    bool ok;
+    double ann = sqrt(dataPolinom->getter_an());
+    double index=QInputDialog::getDouble(this, "Input", "Write index: ", 0, 0, 100, 1, &ok);
+        if (!ok) return;
+    double value=QInputDialog::getDouble(this, "Input", "Write value root: ", 0, 0, 100, 1, &ok);
+                if (!ok) return;
+
+    QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
+    dataPolinom->set_root(index,value);
+    dataPolinom->ByRoots(ann,dataPolinom->getter_roots());
+
+}
+//16
+
+void userinterface::on_polinomTool8_clicked()
+{
+    bool ok;
+    double x=QInputDialog::getDouble(this, "Input", "Write x: ", 0, 0, 100, 1, &ok);
+    if (!ok) return;
+    QMessageBox::information(nullptr, "Info",dataPolinom->find_Val_PrintQString(x));
+}
+//17

@@ -72,11 +72,11 @@ TPolinom::TPolinom(std::vector<number> a_)
 
 TPolinom::TPolinom()
 {
-    a.push_back(10);
-    a.push_back(-7);
-    a.push_back(1);
-    roots.push_back(5);
-    roots.push_back(2);
+    a.push_back(0);
+    a.push_back(0);
+    a.push_back(0);
+    roots.push_back(0);
+    roots.push_back(0);
 }
 
 number TPolinom::find_Val(number asd)
@@ -193,4 +193,13 @@ QString TPolinom::getStringValue() {
         }
     }
     return str.trimmed(); // Удаляем лишние пробелы в конце
+}
+
+
+QString TPolinom::find_Val_PrintQString(number numb)
+{
+    QString str;
+    QTextStream stream(&str);
+    stream << "P(" << numb << ") = "<< find_Val(numb);
+    return str;
 }

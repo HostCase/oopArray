@@ -48,6 +48,7 @@ public:
     friend std::istream &operator >> (std::istream &is,TPolinom &pol);
     void readPolinomFromQString(const QString &input);
     QString getStringValue();
+    QString find_Val_PrintQString(number numb);
 };
 
 #endif // TPOLINOM_H
