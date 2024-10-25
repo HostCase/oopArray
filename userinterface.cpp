@@ -13,7 +13,7 @@ userinterface::userinterface(QWidget *parent)
     lay->setSpacing(2);
     ui->scrollAreaWidgetContents->setLayout(lay);
     ui->scrollArea_2->hide();
-
+    ui->scrollAreaOutput->hide();
     QIntValidator *validator = new QIntValidator(this);
     ui->arraySizeInput->setValidator(validator);
     ui->elementInput->setValidator(validator);
