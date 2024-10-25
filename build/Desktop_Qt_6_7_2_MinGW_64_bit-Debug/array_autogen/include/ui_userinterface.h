@@ -10,14 +10,11 @@
 #define UI_USERINTERFACE_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStatusBar>
@@ -59,15 +56,13 @@ public:
     QHBoxLayout *horizontalLayout_8;
     QPushButton *upToDownSortButton;
     QPushButton *downToUpSortButton;
-    QPushButton *GetSizeButton;
     QWidget *widget_7;
     QHBoxLayout *horizontalLayout_7;
+    QPushButton *GetSizeButton;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *polinomTools;
     QLabel *programMethod;
     QStatusBar *statusbar;
-    QMenuBar *menubar;
-    QMenu *menuProgramm;
 
     void setupUi(QMainWindow *userinterface)
     {
@@ -120,7 +115,7 @@ public:
         scrollContens_2 = new QWidget();
         scrollContens_2->setObjectName("scrollContens_2");
         scrollContens_2->setEnabled(true);
-        scrollContens_2->setGeometry(QRect(0, 0, 405, 382));
+        scrollContens_2->setGeometry(QRect(0, -197, 405, 376));
         verticalLayout_3 = new QVBoxLayout(scrollContens_2);
         verticalLayout_3->setObjectName("verticalLayout_3");
         label = new QLabel(scrollContens_2);
@@ -209,17 +204,17 @@ public:
 
         arrayTools->addWidget(widget_8);
 
-        GetSizeButton = new QPushButton(scrollContens_2);
-        GetSizeButton->setObjectName("GetSizeButton");
-        GetSizeButton->setStyleSheet(QString::fromUtf8("border-color: rgb(0, 60, 255);\n"
-""));
-
-        arrayTools->addWidget(GetSizeButton);
-
         widget_7 = new QWidget(scrollContens_2);
         widget_7->setObjectName("widget_7");
         horizontalLayout_7 = new QHBoxLayout(widget_7);
         horizontalLayout_7->setObjectName("horizontalLayout_7");
+        GetSizeButton = new QPushButton(widget_7);
+        GetSizeButton->setObjectName("GetSizeButton");
+        GetSizeButton->setStyleSheet(QString::fromUtf8("border-color: rgb(0, 60, 255);\n"
+""));
+
+        horizontalLayout_7->addWidget(GetSizeButton);
+
 
         arrayTools->addWidget(widget_7);
 
@@ -240,14 +235,6 @@ public:
         statusbar = new QStatusBar(userinterface);
         statusbar->setObjectName("statusbar");
         userinterface->setStatusBar(statusbar);
-        menubar = new QMenuBar(userinterface);
-        menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 21));
-        menuProgramm = new QMenu(menubar);
-        menuProgramm->setObjectName("menuProgramm");
-        userinterface->setMenuBar(menubar);
-
-        menubar->addAction(menuProgramm->menuAction());
 
         retranslateUi(userinterface);
 
@@ -268,7 +255,6 @@ public:
         downToUpSortButton->setText(QCoreApplication::translate("userinterface", "downToUp", nullptr));
         GetSizeButton->setText(QCoreApplication::translate("userinterface", "GetSIZE", nullptr));
         programMethod->setText(QString());
-        menuProgramm->setTitle(QCoreApplication::translate("userinterface", "Programm", nullptr));
     } // retranslateUi
 
 };

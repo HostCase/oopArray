@@ -17,7 +17,6 @@ userinterface::userinterface(QWidget *parent)
     QIntValidator *validator = new QIntValidator(this);
     ui->arraySizeInput->setValidator(validator);
     ui->elementInput->setValidator(validator);
-    ui->scrollAreaOutput->hide();
 }
 
 userinterface::~userinterface()
@@ -29,18 +28,37 @@ userinterface::~userinterface()
 
 void userinterface::on_selectArray_clicked()
 {
-    if(!(methodInput==0)){
-        delete dataInterfaceObj;
+    if(methodInput==0){
+        ui->programMethod->setText("Selected: Array");
+        QString str=ui->arraySizeInput->text();
+        int sizeCreate= str.toInt();
+        ui->arraySizeInput->clear();
+        methodInput=1;
+        dataInterfaceObj=new Arraycustom(sizeCreate);
+        ui->scrollArea_2->show();
+        ui->scrollAreaOutput->show();
+
+        //виджеты в тулсах
+        ui->widget->show();
+        ui->widget_2->show();
+        ui->widget_4->show();
+        ui->widget_7->show();
+        ui->widget_8->show();
+        //хайднуть полиномовские
+
+        refreshMenu();
     }
-    ui->programMethod->setText("Selected: Array");
-    QString str=ui->arraySizeInput->text();
-    int sizeCreate= str.toInt();
-    ui->arraySizeInput->clear();
-    methodInput=1;
-    dataInterfaceObj=new Arraycustom(sizeCreate);
-    refreshMenu();
-    ui->scrollArea_2->show();
-    ui->scrollAreaOutput->show();
+    if(methodInput==2){
+        ui->programMethod->setText("Selected: Array");
+        ui->scrollAreaOutput->show();
+        ui->widget->show();
+        ui->widget_2->show();
+        ui->widget_4->show();
+        ui->widget_7->show();
+        ui->widget_8->show();
+        methodInput=1;
+        refreshMenu();
+    }
 }
 
 void userinterface::on_arraySizeInput_returnPressed()
@@ -167,6 +185,52 @@ void userinterface::on_downToUpSortButton_clicked()
     }
 }
 
+
+
+
+
+
+void userinterface::on_SelectPolinom_clicked()
+{
+
+    if(methodInput==0||methodInput==1){
+        ui->programMethod->setText("Selected: Polinom");
+        QString str=ui->arraySizeInput->text();
+        int sizeCreate= str.toInt();
+        ui->arraySizeInput->clear();
+        methodInput=2;
+        dataInterfaceObj=new Arraycustom(sizeCreate);
+        refreshMenu();
+        ui->scrollArea_2->show();
+
+        ui->scrollAreaOutput->show();
+
+
+        // виджеты от arrayTools
+
+        //сюда show на виджеты от polinom
+
+
+        ui->widget->hide();
+        ui->widget_2->hide();
+        ui->widget_4->hide();
+        ui->widget_7->hide();
+        ui->widget_8->hide();
+        ui->scrollAreaOutput->hide();
+        // виджеты от arrayTools
+
+    }
+    if(methodInput==2){
+        ui->programMethod->setText("Selected: Polinom");
+        ui->widget->hide();
+        ui->widget_2->hide();
+        ui->widget_4->hide();
+        ui->widget_7->hide();
+        ui->widget_8->hide();
+        methodInput=2;
+        refreshMenu();
+    }
+}
 
 
 

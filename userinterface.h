@@ -2,6 +2,7 @@
 #define USERINTERFACE_H
 
 #include "arraycustom.h"
+#include "tpolinom.h"
 #include <QMainWindow>
 #include <QValidator>
 #include <qboxlayout.h>
@@ -48,11 +49,14 @@ private slots:
 
     void on_downToUpSortButton_clicked();
 
+    void on_SelectPolinom_clicked();
+
 private:
     Ui::userinterface *ui;
     QVBoxLayout *lay;
     int methodInput = 0;
     Arraycustom* dataInterfaceObj;
+    TPolinom* dataPolinom;
 };
 
 #endif // USERINTERFACE_H
