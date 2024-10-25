@@ -8,6 +8,7 @@
 #include <qboxlayout.h>
 #include <QMessageBox>
 #include <QTextStream>
+#include <QInputDialog>
 namespace Ui {
 class userinterface;
 }
@@ -50,6 +51,13 @@ private slots:
     void on_downToUpSortButton_clicked();
 
     void on_SelectPolinom_clicked();
+
+    void on_PolinomFromString_Button_clicked();
+
+
+    void on_polinomTool2_clicked();
+
+    void on_polinomTool3_clicked();
 
 private:
     Ui::userinterface *ui;

@@ -98,9 +98,9 @@ font: 18pt &quot;Microsoft JhengHei&quot;;</string>
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>-197</y>
+       <y>-391</y>
        <width>405</width>
-       <height>376</height>
+       <height>570</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -223,19 +223,60 @@ font: 18pt &quot;Microsoft JhengHei&quot;;</string>
         </item>
        </layout>
       </item>
+      <item>
+       <layout class="QVBoxLayout" name="polinomTools">
+        <item>
+         <widget class="QWidget" name="polinomW1" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLineEdit" name="PolinomInput_Line"/>
+           </item>
+           <item>
+            <widget class="QPushButton" name="PolinomFromString_Button">
+             <property name="text">
+              <string>10</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="polinomW1_2" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <widget class="QLineEdit" name="polinomTool2_line"/>
+           </item>
+           <item>
+            <widget class="QPushButton" name="polinomTool2">
+             <property name="text">
+              <string>11</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="polinomW1_3" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QLineEdit" name="polinomTool3_line"/>
+           </item>
+           <item>
+            <widget class="QPushButton" name="polinomTool3">
+             <property name="text">
+              <string>12</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </item>
      </layout>
     </widget>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>400</y>
-      <width>367</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="polinomTools"/>
    </widget>
    <widget class="QLabel" name="programMethod">
     <property name="geometry">

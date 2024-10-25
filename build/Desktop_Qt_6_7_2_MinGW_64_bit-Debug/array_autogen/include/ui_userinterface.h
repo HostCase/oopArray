@@ -59,8 +59,19 @@ public:
     QWidget *widget_7;
     QHBoxLayout *horizontalLayout_7;
     QPushButton *GetSizeButton;
-    QWidget *verticalLayoutWidget_2;
     QVBoxLayout *polinomTools;
+    QWidget *polinomW1;
+    QHBoxLayout *horizontalLayout_3;
+    QLineEdit *PolinomInput_Line;
+    QPushButton *PolinomFromString_Button;
+    QWidget *polinomW1_2;
+    QHBoxLayout *horizontalLayout_5;
+    QLineEdit *polinomTool2_line;
+    QPushButton *polinomTool2;
+    QWidget *polinomW1_3;
+    QHBoxLayout *horizontalLayout_6;
+    QLineEdit *polinomTool3_line;
+    QPushButton *polinomTool3;
     QLabel *programMethod;
     QStatusBar *statusbar;
 
@@ -115,7 +126,7 @@ public:
         scrollContens_2 = new QWidget();
         scrollContens_2->setObjectName("scrollContens_2");
         scrollContens_2->setEnabled(true);
-        scrollContens_2->setGeometry(QRect(0, -197, 405, 376));
+        scrollContens_2->setGeometry(QRect(0, -391, 405, 570));
         verticalLayout_3 = new QVBoxLayout(scrollContens_2);
         verticalLayout_3->setObjectName("verticalLayout_3");
         label = new QLabel(scrollContens_2);
@@ -221,13 +232,63 @@ public:
 
         verticalLayout_3->addLayout(arrayTools);
 
-        scrollArea_2->setWidget(scrollContens_2);
-        verticalLayoutWidget_2 = new QWidget(centralwidget);
-        verticalLayoutWidget_2->setObjectName("verticalLayoutWidget_2");
-        verticalLayoutWidget_2->setGeometry(QRect(450, 400, 367, 101));
-        polinomTools = new QVBoxLayout(verticalLayoutWidget_2);
+        polinomTools = new QVBoxLayout();
         polinomTools->setObjectName("polinomTools");
-        polinomTools->setContentsMargins(0, 0, 0, 0);
+        polinomW1 = new QWidget(scrollContens_2);
+        polinomW1->setObjectName("polinomW1");
+        horizontalLayout_3 = new QHBoxLayout(polinomW1);
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        PolinomInput_Line = new QLineEdit(polinomW1);
+        PolinomInput_Line->setObjectName("PolinomInput_Line");
+
+        horizontalLayout_3->addWidget(PolinomInput_Line);
+
+        PolinomFromString_Button = new QPushButton(polinomW1);
+        PolinomFromString_Button->setObjectName("PolinomFromString_Button");
+
+        horizontalLayout_3->addWidget(PolinomFromString_Button);
+
+
+        polinomTools->addWidget(polinomW1);
+
+        polinomW1_2 = new QWidget(scrollContens_2);
+        polinomW1_2->setObjectName("polinomW1_2");
+        horizontalLayout_5 = new QHBoxLayout(polinomW1_2);
+        horizontalLayout_5->setObjectName("horizontalLayout_5");
+        polinomTool2_line = new QLineEdit(polinomW1_2);
+        polinomTool2_line->setObjectName("polinomTool2_line");
+
+        horizontalLayout_5->addWidget(polinomTool2_line);
+
+        polinomTool2 = new QPushButton(polinomW1_2);
+        polinomTool2->setObjectName("polinomTool2");
+
+        horizontalLayout_5->addWidget(polinomTool2);
+
+
+        polinomTools->addWidget(polinomW1_2);
+
+        polinomW1_3 = new QWidget(scrollContens_2);
+        polinomW1_3->setObjectName("polinomW1_3");
+        horizontalLayout_6 = new QHBoxLayout(polinomW1_3);
+        horizontalLayout_6->setObjectName("horizontalLayout_6");
+        polinomTool3_line = new QLineEdit(polinomW1_3);
+        polinomTool3_line->setObjectName("polinomTool3_line");
+
+        horizontalLayout_6->addWidget(polinomTool3_line);
+
+        polinomTool3 = new QPushButton(polinomW1_3);
+        polinomTool3->setObjectName("polinomTool3");
+
+        horizontalLayout_6->addWidget(polinomTool3);
+
+
+        polinomTools->addWidget(polinomW1_3);
+
+
+        verticalLayout_3->addLayout(polinomTools);
+
+        scrollArea_2->setWidget(scrollContens_2);
         programMethod = new QLabel(centralwidget);
         programMethod->setObjectName("programMethod");
         programMethod->setGeometry(QRect(20, 220, 161, 51));
@@ -254,6 +315,9 @@ public:
         upToDownSortButton->setText(QCoreApplication::translate("userinterface", "upToDown", nullptr));
         downToUpSortButton->setText(QCoreApplication::translate("userinterface", "downToUp", nullptr));
         GetSizeButton->setText(QCoreApplication::translate("userinterface", "GetSIZE", nullptr));
+        PolinomFromString_Button->setText(QCoreApplication::translate("userinterface", "10", nullptr));
+        polinomTool2->setText(QCoreApplication::translate("userinterface", "11", nullptr));
+        polinomTool3->setText(QCoreApplication::translate("userinterface", "12", nullptr));
         programMethod->setText(QString());
     } // retranslateUi
 

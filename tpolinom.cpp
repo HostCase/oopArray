@@ -1,4 +1,5 @@
 #include "tpolinom.h"
+#include <qregularexpression.h>
 std::istream &operator>>(std::istream &is, TPolinom &pol) {
 
     pol.a.clear();
@@ -128,4 +129,68 @@ void TPolinom::ByRoots(double k, std::vector<double> root)
         a.push_back(coefficients[i]*k);
     }
     return;
+}
+
+
+
+void TPolinom::readPolinomFromQString(const QString &input) {
+    this->a.clear();
+    this->roots.clear();
+
+    // Разделяем входную строку на термы, учитывая знаки
+    QStringList terms = input.split(QRegularExpression("(?=[+-])"), Qt::SkipEmptyParts);
+    for (const QString &term : terms) {
+        QString trimmedTerm = term.trimmed();
+        QRegularExpression regex("([+-]?\\d*)(?:\\*x\\^?(\\d*))?");
+        QRegularExpressionMatch match = regex.match(trimmedTerm);
+
+        if (match.hasMatch()) {
+            QString coeffStr = match.captured(1);
+            QString powerStr = match.captured(2);
+
+            // Определяем коэффициент
+            int coeff = coeffStr.isEmpty() ? 1 : coeffStr.toInt();
+            if (coeffStr.startsWith('-')) {
+                coeff = -coeff;
+            } else if (coeffStr.isEmpty() || coeffStr == "+") {
+                coeff = 1; // Если '+' перед коэффициентом, то это 1
+            }
+
+            // Определяем степень
+            int power = powerStr.isEmpty() ? 0 : powerStr.toInt();
+
+            if (power >= 0) {
+                if (this->a.size() <= power) {
+                    this->setDegree(power);
+                }
+                this->a[power] = coeff;
+            }
+        }
+    }
+}
+
+
+QString TPolinom::getStringValue() {
+    QString str;
+    QTextStream stream(&str);
+
+    if (this->printMode == PrintModeClassic) {
+        for (int i = this->a.size() - 1; i >= 0; --i) {
+            if (this->a[i] != 0 || i == 0) {
+                if (this->a[i] > 0 && i < this->a.size() - 1) {
+                    stream << "+";
+                }
+                stream << this->a[i];
+                if (i > 0) {
+                    stream << "x^" << i << " ";
+                }
+            }
+        }
+    } else {
+        stream << this->a[this->a.size() - 1];
+        for (int i = 0; i < this->roots.size(); i++) {
+            stream << "(x-" << this->roots[i] << ")";
+        }
+    }
+    return str.trimmed(); // Удаляем лишние пробелы в конце
 }
