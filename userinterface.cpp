@@ -19,6 +19,9 @@ userinterface::userinterface(QWidget *parent)
     ui->elementInput->setValidator(validator);
 
     ui->clearArrayButton->hide();
+
+    ui->elementInput->setPlaceholderText("Index");
+    ui->EraseLine->setPlaceholderText("Index");
 }
 
 userinterface::~userinterface()
@@ -296,7 +299,9 @@ void userinterface::on_getPolynomButton_clicked()
 
 
 void userinterface::on_PolinomFromString_Button_clicked() {
-    QString str = ui->PolinomInput_Line->text();
+    bool ok;
+    QString str =     QInputDialog::getText(this, "Input", "Write string for polynom", QLineEdit::Normal, "", &ok);
+    if(!ok) return;
     if (str.isEmpty()) {
         QMessageBox::warning(nullptr, "Warning", "Error input");
         return;
@@ -312,13 +317,14 @@ void userinterface::on_polinomTool2_clicked()
 {
 
     //std::cout << "write a[0]\n";
-    QString str=ui->polinomTool2_line->text();
-    double a=str.toDouble();
+    bool ok;
+    double a=QInputDialog::getDouble(this, "Input", "Write an:", 0, 0, 100, 1, &ok);
+    if(!ok) return;
     TPolinom pol(a);
     dataPolinom=new TPolinom(a);
     //std::cout << pol << "\n";
 
-    QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
+    QMessageBox::information(nullptr, "Output", dataPolinom->getStringValue());
 
 
 }
