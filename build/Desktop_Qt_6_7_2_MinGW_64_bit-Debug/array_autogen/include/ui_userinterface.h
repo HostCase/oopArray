@@ -96,6 +96,10 @@ public:
         if (userinterface->objectName().isEmpty())
             userinterface->setObjectName("userinterface");
         userinterface->resize(800, 600);
+        userinterface->setMinimumSize(QSize(800, 600));
+        userinterface->setMaximumSize(QSize(800, 600));
+        userinterface->setSizeIncrement(QSize(0, 0));
+        userinterface->setCursor(QCursor(Qt::CursorShape::ArrowCursor));
         centralwidget = new QWidget(userinterface);
         centralwidget->setObjectName("centralwidget");
         verticalLayoutWidget = new QWidget(centralwidget);
@@ -132,7 +136,7 @@ public:
         scrollContens_2 = new QWidget();
         scrollContens_2->setObjectName("scrollContens_2");
         scrollContens_2->setEnabled(true);
-        scrollContens_2->setGeometry(QRect(0, -775, 405, 954));
+        scrollContens_2->setGeometry(QRect(0, -397, 405, 954));
         verticalLayout_3 = new QVBoxLayout(scrollContens_2);
         verticalLayout_3->setObjectName("verticalLayout_3");
         label = new QLabel(scrollContens_2);

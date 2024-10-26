@@ -31,30 +31,40 @@ userinterface::~userinterface()
 void userinterface::on_selectArray_clicked()
 {
     if(methodInput==0||(dataInterfaceObj==nullptr)){
-        ui->programMethod->setText("Selected: Array");
+
         bool ok;
         int sizeCreate= QInputDialog::getInt(this, "Input", "Write index: ", 0, 0, 100, 1, &ok);
         if (!ok) return;
         methodInput=1;
         dataInterfaceObj=new Arraycustom(sizeCreate);
+
+        ui->programMethod->setText("Selected: Array");
         ui->clearArrayButton->show();
         ui->scrollArea_2->show();
         ui->scrollAreaOutput->show();
-
         ui->widget->show();
         ui->widget_2->show();
         ui->widget_4->show();
         ui->widget_7->show();
         ui->widget_8->show();
         ui->polinomW1->hide();
+        ui->polinomW1_2->hide();
+        ui->polinomW1_3->hide();
+        ui->polinomW1_4->hide();
+        ui->polinomW1_5->hide();
+        ui->polinomW1_6->hide();
+        ui->polinomW1_7->hide();
+        ui->polinomW1_8->hide();
+        ui->polinomW1_9->hide();
 
 
         refreshMenu();
     }
     if(methodInput==2){
-        ui->clearArrayButton->show();
-
+        methodInput=1;
         ui->programMethod->setText("Selected: Array");
+        ui->clearArrayButton->show();
+        ui->scrollArea_2->show();
         ui->scrollAreaOutput->show();
         ui->widget->show();
         ui->widget_2->show();
@@ -62,7 +72,16 @@ void userinterface::on_selectArray_clicked()
         ui->widget_7->show();
         ui->widget_8->show();
         ui->polinomW1->hide();
-        methodInput=1;
+        ui->polinomW1_2->hide();
+        ui->polinomW1_3->hide();
+        ui->polinomW1_4->hide();
+        ui->polinomW1_5->hide();
+        ui->polinomW1_6->hide();
+        ui->polinomW1_7->hide();
+        ui->polinomW1_8->hide();
+        ui->polinomW1_9->hide();
+
+
         refreshMenu();
     }
 }
@@ -227,6 +246,15 @@ void userinterface::on_SelectPolinom_clicked()
         ui->widget_7->hide();
         ui->widget_8->hide();
         ui->scrollAreaOutput->hide();
+
+        ui->polinomW1_2->show();
+        ui->polinomW1_3->show();
+        ui->polinomW1_4->show();
+        ui->polinomW1_5->show();
+        ui->polinomW1_6->show();
+        ui->polinomW1_7->show();
+        ui->polinomW1_8->show();
+        ui->polinomW1_9->show();
         // виджеты от arrayTools
 
     }
@@ -238,7 +266,14 @@ void userinterface::on_SelectPolinom_clicked()
         ui->widget_7->hide();
         ui->widget_8->hide();
         ui->polinomW1->show();
-
+        ui->polinomW1_2->show();
+        ui->polinomW1_3->show();
+        ui->polinomW1_4->show();
+        ui->polinomW1_5->show();
+        ui->polinomW1_6->show();
+        ui->polinomW1_7->show();
+        ui->polinomW1_8->show();
+        ui->polinomW1_9->show();
 
     }
 }
