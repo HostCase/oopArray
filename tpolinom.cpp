@@ -1,5 +1,6 @@
 #include "tpolinom.h"
 #include <qregularexpression.h>
+#include <QDebug>
 std::istream &operator>>(std::istream &is, TPolinom &pol) {
 
     pol.a.clear();
@@ -134,40 +135,18 @@ void TPolinom::ByRoots(double k, std::vector<double> root)
 
 
 void TPolinom::readPolinomFromQString(const QString &input) {
-    this->a.clear();
-    this->roots.clear();
-
-    // Разделяем входную строку на термы, учитывая знаки
-    QStringList terms = input.split(QRegularExpression("(?=[+-])"), Qt::SkipEmptyParts);
-    for (const QString &term : terms) {
-        QString trimmedTerm = term.trimmed();
-        QRegularExpression regex("([+-]?\\d*)(?:\\*x\\^?(\\d*))?");
-        QRegularExpressionMatch match = regex.match(trimmedTerm);
-
-        if (match.hasMatch()) {
-            QString coeffStr = match.captured(1);
-            QString powerStr = match.captured(2);
-
-            // Определяем коэффициент
-            int coeff = coeffStr.isEmpty() ? 1 : coeffStr.toInt();
-            if (coeffStr.startsWith('-')) {
-                coeff = -coeff;
-            } else if (coeffStr.isEmpty() || coeffStr == "+") {
-                coeff = 1; // Если '+' перед коэффициентом, то это 1
-            }
-
-            // Определяем степень
-            int power = powerStr.isEmpty() ? 0 : powerStr.toInt();
-
-            if (power >= 0) {
-                if (this->a.size() <= power) {
-                    this->setDegree(power);
-                }
-                this->a[power] = coeff;
-            }
-        }
-    }
+    std::istringstream iss(input.toStdString());
+    iss >> *this;
 }
+
+//4x^2+25x^2+9x
+
+
+
+
+
+
+
 
 
 QString TPolinom::getStringValue() {
@@ -175,12 +154,22 @@ QString TPolinom::getStringValue() {
     QTextStream stream(&str);
 
     if (this->printMode == PrintModeClassic) {
+        bool firstTerm = true;
+
         for (int i = this->a.size() - 1; i >= 0; --i) {
             if (this->a[i] != 0 || i == 0) {
-                if (this->a[i] > 0 && i < this->a.size() - 1) {
-                    stream << "+";
+                if (!firstTerm) {
+                    if (this->a[i] > 0) {
+                        stream << "+";
+                    } else {
+                        stream << "-";
+                    }
+                } else {
+                    firstTerm = false;
                 }
-                stream << this->a[i];
+
+                stream << (this->a[i]);
+
                 if (i > 0) {
                     stream << "x^" << i << " ";
                 }
@@ -192,9 +181,9 @@ QString TPolinom::getStringValue() {
             stream << "(x-" << this->roots[i] << ")";
         }
     }
-    return str.trimmed(); // Удаляем лишние пробелы в конце
-}
 
+    return str.trimmed();
+}
 
 QString TPolinom::find_Val_PrintQString(number numb)
 {
