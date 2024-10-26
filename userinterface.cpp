@@ -320,13 +320,13 @@ void userinterface::on_PolinomFromString_Button_clicked() {
 void userinterface::on_polinomTool2_clicked()
 {
 
-    //std::cout << "write a[0]\n";
+
     bool ok;
     double a=QInputDialog::getDouble(this, "Input", "Write an:", 0, 0, 100, 1, &ok);
     if(!ok) return;
     TPolinom pol(a);
     dataPolinom=new TPolinom(a);
-    //std::cout << pol << "\n";
+
 
     QMessageBox::information(nullptr, "Output", dataPolinom->getStringValue());
 
@@ -336,29 +336,7 @@ void userinterface::on_polinomTool2_clicked()
 
 
 
-/*void userinterface::on_polinomTool3_clicked()
-{
 
-        std::vector<double> rootz;
-        QString input =ui->polinomTool3_line->text();
-        double an=input.toDouble();
-        ui->polinomTool3_line->clear();
-        QMessageBox::information(nullptr, "Info", "Write degree");
-        input =ui->polinomTool3_line->text();
-        double deg=input.toDouble();
-        ui->polinomTool3_line->clear();
-        for(int i = 0; i < deg; i++){
-            QMessageBox::information(nullptr, "Info", "Write roots");
-            input =ui->polinomTool3_line->text();
-            double root=input.toDouble();
-            ui->polinomTool3_line->clear();
-            rootz.push_back(root);
-        }
-        dataPolinom->ByRoots(an, rootz);
-        QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
-
-}
-*/
 void userinterface::on_polinomTool3_clicked()
 {
     std::vector<double> rootz;
