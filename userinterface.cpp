@@ -368,6 +368,7 @@ void userinterface::on_polinomTool4_clicked()
 {
     dataPolinom->setPrintMode(PrintModeClassic);
     QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
+    std::cout<<*dataPolinom;
 }
 //13
 
@@ -375,13 +376,16 @@ void userinterface::on_polinomTool4_clicked()
 
 void userinterface::on_polinomTool5_clicked()
 {
-    if (dataPolinom->eroot()){
-        dataPolinom->setPrintMode(PrintModeRoot);
-        QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
-    }
-    else{
-        QMessageBox::information(nullptr, "Error", "Error with polinom roots");
-    }
+
+                if (!(dataPolinom->eroot())){
+                    dataPolinom->setPrintMode(PrintModeRoot);
+                    QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
+                    std::cout << *dataPolinom << "\n";
+                }
+                else{
+                    std::cout << "undefined poli roots\n";
+                }
+                dataPolinom->setPrintMode(PrintModeClassic);
 }
 //14
 
@@ -406,15 +410,21 @@ void userinterface::on_polinomTool6_clicked()
 void userinterface::on_polinomTool7_clicked()
 {
     bool ok;
-    double ann = sqrt(dataPolinom->getter_an());
-    double index=QInputDialog::getDouble(this, "Input", "Write index: ", 0, 0, 100, 1, &ok);
+    double ann = (dataPolinom->getter_an());
+    int index=QInputDialog::getInt(this, "Input", "Write index: ", 0, 0, 100, 1, &ok);
         if (!ok) return;
     double value=QInputDialog::getDouble(this, "Input", "Write value root: ", 0, 0, 100, 1, &ok);
-                if (!ok) return;
+        if (!ok) return;
 
-    QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
     dataPolinom->set_root(index,value);
     dataPolinom->ByRoots(ann,dataPolinom->getter_roots());
+    QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
+
+
+
+
+
+
 
 }
 //16

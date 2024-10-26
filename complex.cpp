@@ -85,7 +85,7 @@ bool Complex::operator  >(int other) const
 
 Complex::operator double() const
 {
-    return (real*real-img*img);
+    return real;
 }
 Complex &Complex::operator=(const Complex &other)
 {

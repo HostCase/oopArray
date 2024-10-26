@@ -1,6 +1,7 @@
 #include "tpolinom.h"
 #include <qregularexpression.h>
 #include <QDebug>
+#include "tpolinom.h"
 std::istream &operator>>(std::istream &is, TPolinom &pol) {
 
     pol.a.clear();
@@ -73,18 +74,18 @@ TPolinom::TPolinom(std::vector<number> a_)
 
 TPolinom::TPolinom()
 {
-    a.push_back(0);
-    a.push_back(0);
-    a.push_back(0);
-    roots.push_back(0);
-    roots.push_back(0);
+    a.push_back(10);
+    a.push_back(-7);
+    a.push_back(1);
+    roots.push_back(5);
+    roots.push_back(2);
 }
 
 number TPolinom::find_Val(number asd)
 {
     number ans;
-    for (int i = a.size()-1;i > -1; i--){
-        ans += a[i] * pow(sqrt(asd),i);
+    for (int i = a.size()-1; i > -1; i--){
+        ans += a[i] * pow((asd),i);
     }
     return ans;
 }
@@ -134,61 +135,6 @@ void TPolinom::ByRoots(double k, std::vector<double> root)
 
 
 
-void TPolinom::readPolinomFromQString(const QString &input) {
-    std::istringstream iss(input.toStdString());
-    iss >> *this;
-}
-
-//4x^2+25x^2+9x
-
-
-
-
-
-
-
-
-
-/*QString TPolinom::getStringValue() {
-    QString str;
-    QTextStream stream(&str);
-
-    if (this->printMode == PrintModeClassic) {
-        bool firstTerm = true;
-
-        for (int i = this->a.size() - 1; i >= 0; --i) {
-            if (this->a[i] != 0 || i == 0) {
-                if (!firstTerm) {
-                    if (this->a[i] > 0) {
-                        stream << "+";
-                    } else {
-                        stream << "-";
-                    }
-                } else {
-                    firstTerm = false;
-                }
-
-                stream << (this->a[i]);
-
-                if (i > 0) {
-                    stream << "x^" << i << " ";
-                }
-            }
-        }
-    } else {
-        stream << this->a[this->a.size() - 1];
-        for (int i = 0; i < this->roots.size(); i++) {
-            stream << "(x-" << this->roots[i] << ")";
-        }
-    }
-
-    return str.trimmed();
-}
-*/
-
-
-
-
 
 QString TPolinom::getStringValue() {
     std::ostringstream oss;
@@ -214,10 +160,19 @@ QString TPolinom::getStringValue() {
 
 
 
+
+
 QString TPolinom::find_Val_PrintQString(number numb)
 {
     QString str;
     QTextStream stream(&str);
-    stream << "P(" << sqrt(numb) << ") = "<< sqrt(find_Val(numb));
+    stream << "P(" << (numb) << ") = "<< (find_Val(numb));
     return str;
+}
+
+
+
+void TPolinom::readPolinomFromQString(const QString &input) {
+    std::istringstream iss(input.toStdString());
+    iss >> *this;
 }
