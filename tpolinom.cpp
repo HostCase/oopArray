@@ -218,6 +218,6 @@ QString TPolinom::find_Val_PrintQString(number numb)
 {
     QString str;
     QTextStream stream(&str);
-    stream << "P(" << numb << ") = "<< find_Val(numb);
+    stream << "P(" << sqrt(numb) << ") = "<< sqrt(find_Val(numb));
     return str;
 }
