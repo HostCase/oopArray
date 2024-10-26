@@ -313,7 +313,6 @@ void userinterface::on_PolinomFromString_Button_clicked() {
 
     dataPolinom->readPolinomFromQString(str);
     QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
-    std::cout<<*dataPolinom;
 }
 
 
@@ -368,7 +367,6 @@ void userinterface::on_polinomTool4_clicked()
 {
     dataPolinom->setPrintMode(PrintModeClassic);
     QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
-    std::cout<<*dataPolinom;
 }
 //13
 
@@ -380,10 +378,8 @@ void userinterface::on_polinomTool5_clicked()
                 if (!(dataPolinom->eroot())){
                     dataPolinom->setPrintMode(PrintModeRoot);
                     QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
-                    std::cout << *dataPolinom << "\n";
                 }
                 else{
-                    std::cout << "undefined poli roots\n";
                 }
                 dataPolinom->setPrintMode(PrintModeClassic);
 }
