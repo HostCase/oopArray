@@ -149,7 +149,7 @@ void TPolinom::readPolinomFromQString(const QString &input) {
 
 
 
-QString TPolinom::getStringValue() {
+/*QString TPolinom::getStringValue() {
     QString str;
     QTextStream stream(&str);
 
@@ -184,6 +184,35 @@ QString TPolinom::getStringValue() {
 
     return str.trimmed();
 }
+*/
+
+
+
+
+
+QString TPolinom::getStringValue() {
+    std::ostringstream oss;
+
+    if (printMode == PrintModeClassic) {
+        for (int i = a.size() - 1; i >= 0; --i) {
+            if (a[i] != 0 || i == 0) {
+                if (a[i] > 0 && i < a.size() - 1) {
+                    oss << "+";
+                }
+                oss << a[i] << "x^" << i << " ";
+            }
+        }
+    } else {
+        oss << a[a.size() - 1];
+        for (int i = 0; i < roots.size(); i++) {
+            oss << "(x-" << roots[i] << ")";
+        }
+    }
+
+    return QString::fromStdString(oss.str()).trimmed();
+}
+
+
 
 QString TPolinom::find_Val_PrintQString(number numb)
 {

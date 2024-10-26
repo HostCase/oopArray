@@ -46,6 +46,7 @@ public:
     void ByRoots(double k, std::vector<double> root);
     friend std::ostream &operator << (std::ostream &os,TPolinom &pol);
     friend std::istream &operator >> (std::istream &is,TPolinom &pol);
+    friend QTextStream &operator<<(QTextStream &stream, const TPolinom &pol);
     void readPolinomFromQString(const QString &input);
     QString getStringValue();
     QString find_Val_PrintQString(number numb);

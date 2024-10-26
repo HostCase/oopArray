@@ -313,6 +313,7 @@ void userinterface::on_PolinomFromString_Button_clicked() {
 
     dataPolinom->readPolinomFromQString(str);
     QMessageBox::information(nullptr, "Info", dataPolinom->getStringValue());
+    std::cout<<*dataPolinom;
 }
 
 
