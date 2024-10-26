@@ -6,8 +6,7 @@ Arraycustom::Arraycustom(int size_){
         data = new number[size_];
         double value = 0;
         for (int i = 0; i < size_; i++){
-            data[i].img = value;
-            data[i].real = -value;
+            data[i]=Complex(value,value);
             value+=1;
         }
         size=size_;

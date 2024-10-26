@@ -39,7 +39,6 @@ private slots:
 
     void on_GetSizeButton_clicked();
 
-    void on_arraySizeInput_returnPressed();
 
     void on_ChangeElement_clicked();
 

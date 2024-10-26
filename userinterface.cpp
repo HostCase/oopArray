@@ -89,10 +89,6 @@ void userinterface::on_selectArray_clicked()
     }
 }
 
-void userinterface::on_arraySizeInput_returnPressed()
-{
-    on_selectArray_clicked();
-}
 
 
 
@@ -108,19 +104,27 @@ void userinterface::removeAllWidgets() {
     }
 }
 
-void userinterface::refreshMenu(){
-    if(methodInputSelected()){
+
+
+void userinterface::refreshMenu() {
+    if (methodInputSelected()) {
         removeAllWidgets();
-        for(int i=0;i<dataInterfaceObj->getSize();i++){
+        for (int i = 0; i < dataInterfaceObj->getSize(); i++) {
             QString value = dataInterfaceObj->getElement(i);
+            QString indexAddStr = "  <font color='red'>" + QString::number(i) + "</font>";
+            value.append(indexAddStr);
             addWidget(value);
         }
-    }
-    else{
+    } else {
         QMessageBox::information(nullptr, "Warning", "Only for array ");
     }
-
 }
+
+
+
+
+
+
 
 
 void userinterface::addWidget(const QString& inputToWidget) {

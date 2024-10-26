@@ -13,8 +13,7 @@ public:
     Complex(double real_, double img_);
     Complex(QString);
     //атрибуты
-    double real;
-    double img;
+
     //операторы
     Complex& operator=(const Complex& other);
     Complex &operator=(double r);
@@ -33,7 +32,11 @@ public:
     friend Complex operator +(const Complex &left, const Complex &right );
     friend std::ostream & operator <<( std::ostream &os, const Complex &c );
     friend std::istream& operator>> (std::istream& out, Complex& x);
+    friend double arg(Complex x);
     QString getStringValue();
+private:
+    double real;
+    double img;
 };
 
 #endif // COMPLEX_H
